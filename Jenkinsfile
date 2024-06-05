@@ -1,13 +1,12 @@
-// Declarative Pipeline
 pipeline {
    agent any
    environment {
        PATH = "C:\\Program Files\\MATLAB\\R2023b\\bin;${PATH}"   // Windows agent 
    }
     stages {
-        stage('Pehla_Kadam') {
+        stage('First_Step') {
             steps {
-               runMATLABCommand(command: 'disp("Hello World!")')
+               runMATLABCommand(command: 'disp("The building just started!")')
             }       
         }
         stage('Simulation') {
@@ -22,7 +21,6 @@ pipeline {
                                  testResultsPDF: 'test-results/testreport.pdf')
             }
         }
-      
        stage('Jmaab_check') {
             steps {
                 runMATLABCommand(command: 'jmaab_check')
@@ -33,11 +31,11 @@ pipeline {
                 runMATLABCommand(command: 'code_generation')
             }       
         }
-       stage('Antim') {
+       stage('Finish') {
             steps {
-               runMATLABCommand(command: 'disp("Good Work Champ")')
+               runMATLABCommand(command: 'disp("This is the last step.")')
             } 
-    }
-   } 
+       }
+   }
 
 }
