@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Simulation') {
             steps {
-                runMATLABCommand(command: '1. simulation_check')
+                runMATLABCommand(command: 'simulation_check')
             }       
         }
        stage('Testcases') {
@@ -23,12 +23,12 @@ pipeline {
         }
        stage('Jmaab_check') {
             steps {
-                runMATLABCommand(command: '3. jmaab_check')
+                runMATLABCommand(command: 'jmaab_check')
             }       
         }
        stage('Code_Generation') {
             steps {
-                runMATLABCommand(command: '4. code_generation')
+                runMATLABCommand(command: 'code_generation')
             }       
         }
        stage('Finish') {
